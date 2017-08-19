@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Rxjava2Tutorial</string>
+    <string name="rxjava2_tutorial">Rxjava2入门教程</string>
+    <string name="start">start</string>
+</resources>

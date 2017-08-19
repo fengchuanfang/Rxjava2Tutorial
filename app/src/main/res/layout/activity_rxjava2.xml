@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:text="@string/rxjava2_tutorial"/>
+
+    <TextView
+            android:id="@+id/print"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+    />
+    <Button
+            android:id="@+id/start"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:text="@string/start"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dp"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:textColor="#ff0000"
+            android:background="@drawable/button_selector"
+    />
+
+</RelativeLayout>
