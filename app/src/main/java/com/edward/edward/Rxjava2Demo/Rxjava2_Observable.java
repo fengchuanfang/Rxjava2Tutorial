@@ -22,6 +22,7 @@ import io.reactivex.functions.Consumer;
 public class Rxjava2_Observable {
 
     public void demo1() {
+
         Observable<String> observable = Observable.create(new ObservableOnSubscribe<String>() {
             @Override
             public void subscribe(ObservableEmitter<String> emitter) throws Exception {
@@ -200,11 +201,8 @@ public class Rxjava2_Observable {
 
             @Override
             public void onNext(Integer integer) {
-                if (integer < 5) {
-                    System.out.println("接收" + integer);
-                } else {
-                    disposable.dispose();
-                }
+                System.out.println("接收" + integer);
+                if (integer > 4) disposable.dispose();
             }
 
             @Override

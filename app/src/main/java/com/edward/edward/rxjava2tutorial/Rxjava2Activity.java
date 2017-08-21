@@ -42,7 +42,7 @@ public class Rxjava2Activity extends AppCompatActivity {
         findViewById(R.id.start).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mObservable.demo1();
+                mObservable.demo8();
             }
         });
     }
