@@ -4,6 +4,7 @@ import com.edward.edward.Rxjava2Demo.Rxjava2_Flowable;
 import com.edward.edward.Rxjava2Demo.Rxjava2_Observable;
 import com.edward.edward.Rxjava2Demo.Rxjava2_Operators;
 import com.edward.edward.Rxjava2Demo.Rxjava2_Scheduler;
+import com.edward.edward.Rxjava2Demo.Rxjava2_Single_Completable_Maybe;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -31,6 +32,11 @@ public class Rxjava2Activity extends AppCompatActivity {
      */
     private Rxjava2_Flowable mFlowable;
 
+    /**
+     * Rxjava2入门教程六：Single、Completable、Maybe——简化版的Observable
+     */
+    private Rxjava2_Single_Completable_Maybe mSingleCompletableMaybe;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,10 +45,11 @@ public class Rxjava2Activity extends AppCompatActivity {
         mOperators = new Rxjava2_Operators();
         mScheduler = new Rxjava2_Scheduler();
         mFlowable = new Rxjava2_Flowable();
+        mSingleCompletableMaybe = new Rxjava2_Single_Completable_Maybe();
         findViewById(R.id.start).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mObservable.demo8();
+                mSingleCompletableMaybe.completableDemo1();
             }
         });
     }
