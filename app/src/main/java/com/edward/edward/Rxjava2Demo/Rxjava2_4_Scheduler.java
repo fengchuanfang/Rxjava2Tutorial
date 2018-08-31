@@ -16,7 +16,7 @@ import io.reactivex.schedulers.Schedulers;
  * @link http://www.jianshu.com/u/f7176d6d53d2
  * 创建时间： 2017/8/19
  */
-public class Rxjava2_Scheduler {
+public class Rxjava2_4_Scheduler {
 
     public void schedulerDemo1() {
         Observable

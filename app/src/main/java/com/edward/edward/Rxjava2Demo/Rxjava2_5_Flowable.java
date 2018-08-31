@@ -23,7 +23,7 @@ import io.reactivex.schedulers.Schedulers;
  * @link http://www.jianshu.com/u/f7176d6d53d2
  * 创建时间： 2017/8/19
  */
-public class Rxjava2_Flowable {
+public class Rxjava2_5_Flowable {
 
     public void demo1() {
         Observable

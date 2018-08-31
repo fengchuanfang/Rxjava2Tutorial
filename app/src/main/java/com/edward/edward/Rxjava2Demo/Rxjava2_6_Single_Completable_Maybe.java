@@ -21,7 +21,7 @@ import io.reactivex.disposables.Disposable;
  * @link http://www.jianshu.com/u/f7176d6d53d2
  * 创建时间： 2017/9/3
  */
-public class Rxjava2_Single_Completable_Maybe {
+public class Rxjava2_6_Single_Completable_Maybe {
 
     public void singleDemo1() {
         Single

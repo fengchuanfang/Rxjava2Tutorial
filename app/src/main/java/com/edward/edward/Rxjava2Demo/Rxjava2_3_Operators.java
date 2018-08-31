@@ -14,7 +14,7 @@ import io.reactivex.functions.Predicate;
  * @link http://www.jianshu.com/u/f7176d6d53d2
  * 创建时间： 2017/8/19
  */
-public class Rxjava2_Operators {
+public class Rxjava2_3_Operators {
 
     public void demo1_range() {
         Observable
