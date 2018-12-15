@@ -10,6 +10,8 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity android:name=".Rxjava2Activity">
+        </activity>
+        <activity android:name="com.edward.directory.DirectoryActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
