@@ -97,6 +97,10 @@ public class Rxjava2_2_Observable {
                 });
     }
 
+
+    public void demo3_1() {
+        Observable.just("Hello World").subscribe(System.out::println);
+    }
     public void demo4() {
         Observable.just("Hello World")
                 .subscribe(new Consumer<String>() {
@@ -125,10 +129,10 @@ public class Rxjava2_2_Observable {
                     for (String str : list) {
                         emitter.onNext(str);
                     }
+                    emitter.onComplete();
                 } catch (Exception e) {
                     emitter.onError(e);
                 }
-                emitter.onComplete();
             }
         }).subscribe(new Observer<String>() {
             @Override
@@ -161,6 +165,10 @@ public class Rxjava2_2_Observable {
                         System.out.println(s);
                     }
                 });
+    }
+
+    public void demo6_1(final List<String> list) {
+        Observable.fromIterable(list).subscribe(System.out::println);
     }
 
     public void demo7(final List<String> list) {

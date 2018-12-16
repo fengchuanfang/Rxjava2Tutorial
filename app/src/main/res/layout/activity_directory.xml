@@ -17,13 +17,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/directory_title"
-            android:layout_margin="20dp">
+            android:layout_margin="30dp">
     </android.support.v7.widget.RecyclerView>
     <ImageView
             android:id="@+id/directory_demo"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_margin="30dp"
+            android:layout_margin="40dp"
             android:src="@mipmap/directory_demo_icon"
             android:scaleType="centerInside"
             android:layout_alignParentRight="true"
