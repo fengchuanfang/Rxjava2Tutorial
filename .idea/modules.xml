@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Rxjava2Tutorial.iml" filepath="$PROJECT_DIR$/.idea/modules/Rxjava2Tutorial.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Rxjava2Tutorial.iml" filepath="$PROJECT_DIR$/Rxjava2Tutorial.iml" />
     </modules>
   </component>
 </project>
