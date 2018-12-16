@@ -1,10 +1,13 @@
 package com.edward.directory;
 
+import com.edward.edward.WebViewActivity;
 import com.edward.edward.rxjava2tutorial.R;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -28,7 +31,7 @@ public class DirectoryAdapter extends RecyclerView.Adapter<DirectoryAdapter.View
         mList = new ArrayList<>();
     }
 
-    void notifyDataSetChanged(List<DirectoryBean> directoryBeans){
+    void notifyDataSetChanged(List<DirectoryBean> directoryBeans) {
         mList.clear();
         mList.addAll(directoryBeans);
         this.notifyDataSetChanged();
@@ -61,6 +64,11 @@ public class DirectoryAdapter extends RecyclerView.Adapter<DirectoryAdapter.View
 
         void setData(DirectoryBean directoryBean) {
             directory_item_text.setText(directoryBean.getTitle());
+            itemView.setOnClickListener(v -> {
+                Intent intent = new Intent(v.getContext(), WebViewActivity.class);
+                intent.putExtra("url", directoryBean.getUrl());
+                v.getContext().startActivity(intent);
+            });
         }
     }
 }
