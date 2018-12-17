@@ -3,9 +3,9 @@ package com.edward.rxjava.directory;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import com.edward.rxjava.directory.DirectoryBean;
 import com.edward.rxjava.R;
 import com.edward.rxjava.Rxjava2Demo.Rxjava2Activity;
+import com.edward.rxjava.Rxjava2DemoBean;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -45,7 +45,7 @@ public class DirectoryActivity extends AppCompatActivity {
         directory_list.setAdapter(adapter);
         mDisposable = Observable
                 .fromCallable(() -> new BufferedReader(new InputStreamReader(getAssets().open("directory.json"))))
-                .map((Function<BufferedReader, List<DirectoryBean>>) bufferedReader -> new Gson().fromJson(bufferedReader, new TypeToken<ArrayList<DirectoryBean>>() {
+                .map((Function<BufferedReader, List<Rxjava2DemoBean>>) bufferedReader -> new Gson().fromJson(bufferedReader, new TypeToken<ArrayList<Rxjava2DemoBean>>() {
                 }.getType()))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

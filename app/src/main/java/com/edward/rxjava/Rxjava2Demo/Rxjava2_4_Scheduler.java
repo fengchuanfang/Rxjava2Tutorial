@@ -1,4 +1,8 @@
-package com.edward.edward.Rxjava2Demo;
+package com.edward.rxjava.Rxjava2Demo;
+
+import com.edward.javaecho.SystemOut;
+
+import android.annotation.SuppressLint;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
@@ -16,6 +20,7 @@ import io.reactivex.schedulers.Schedulers;
  * @link http://www.jianshu.com/u/f7176d6d53d2
  * 创建时间： 2017/8/19
  */
+@SuppressLint("CheckResult")
 public class Rxjava2_4_Scheduler {
 
     public void schedulerDemo1() {
@@ -24,7 +29,7 @@ public class Rxjava2_4_Scheduler {
                     @Override
                     public void subscribe(ObservableEmitter<Integer> e) throws Exception {
                         for (int i = 0; i < 5; i++) {
-                            System.out.println("发射线程:" + Thread.currentThread().getName() + "---->" + "发射:" + i);
+                            SystemOut.println("发射线程:" + Thread.currentThread().getName() + "---->" + "发射:" + i);
                             Thread.sleep(1000);
                             e.onNext(i);
                         }
@@ -36,7 +41,7 @@ public class Rxjava2_4_Scheduler {
                 .subscribe(new Consumer<Integer>() {
                     @Override
                     public void accept(@NonNull Integer i) throws Exception {
-                        System.out.println("接收线程:" + Thread.currentThread().getName() + "---->" + "接收:" + i);
+                        SystemOut.println("接收线程:" + Thread.currentThread().getName() + "---->" + "接收:" + i);
                     }
                 });
     }
@@ -47,7 +52,7 @@ public class Rxjava2_4_Scheduler {
                     @Override
                     public void subscribe(ObservableEmitter<Integer> e) throws Exception {
                         for (int i = 0; i < 5; i++) {
-                            System.out.println("发射线程:" + Thread.currentThread().getName() + "---->" + "发射:" + i);
+                            SystemOut.println("发射线程:" + Thread.currentThread().getName() + "---->" + "发射:" + i);
                             Thread.sleep(1000);
                             e.onNext(i);
                         }
@@ -58,7 +63,7 @@ public class Rxjava2_4_Scheduler {
                 .map(new Function<Integer, Integer>() {
                     @Override
                     public Integer apply(@NonNull Integer i) throws Exception {
-                        System.out.println("处理线程:" + Thread.currentThread().getName() + "---->" + "处理:" + i);
+                        SystemOut.println("处理线程:" + Thread.currentThread().getName() + "---->" + "处理:" + i);
                         return i;
                     }
                 })
@@ -67,7 +72,7 @@ public class Rxjava2_4_Scheduler {
                 .subscribe(new Consumer<Integer>() {
                     @Override
                     public void accept(@NonNull Integer i) throws Exception {
-                        System.out.println("接收线程:" + Thread.currentThread().getName() + "---->" + "接收:" + i);
+                        SystemOut.println("接收线程:" + Thread.currentThread().getName() + "---->" + "接收:" + i);
                     }
                 });
     }
@@ -78,7 +83,7 @@ public class Rxjava2_4_Scheduler {
                     @Override
                     public void subscribe(ObservableEmitter<Integer> e) throws Exception {
                         for (int i = 0; i < 2; i++) {
-                            System.out.println("发射线程:" + Thread.currentThread().getName() + "---->" + "发射:" + i);
+                            SystemOut.println("发射线程:" + Thread.currentThread().getName() + "---->" + "发射:" + i);
                             Thread.sleep(1000);
                             e.onNext(i);
                         }
@@ -90,7 +95,7 @@ public class Rxjava2_4_Scheduler {
                 .map(new Function<Integer, Integer>() {
                     @Override
                     public Integer apply(@NonNull Integer i) throws Exception {
-                        System.out.println("处理线程:" + Thread.currentThread().getName() + "---->" + "处理:" + i);
+                        SystemOut.println("处理线程:" + Thread.currentThread().getName() + "---->" + "处理:" + i);
                         return i;
                     }
                 })
@@ -98,7 +103,7 @@ public class Rxjava2_4_Scheduler {
                 .subscribe(new Consumer<Integer>() {
                     @Override
                     public void accept(@NonNull Integer i) throws Exception {
-                        System.out.println("接收线程:" + Thread.currentThread().getName() + "---->" + "接收:" + i);
+                        SystemOut.println("接收线程:" + Thread.currentThread().getName() + "---->" + "接收:" + i);
                     }
                 });
     }
@@ -109,7 +114,7 @@ public class Rxjava2_4_Scheduler {
                     @Override
                     public void subscribe(ObservableEmitter<Integer> e) throws Exception {
                         for (int i = 0; i < 5; i++) {
-                            System.out.println("发射线程:" + Thread.currentThread().getName() + "---->" + "发射:" + i);
+                            SystemOut.println("发射线程:" + Thread.currentThread().getName() + "---->" + "发射:" + i);
                             Thread.sleep(1000);
                             e.onNext(i);
                         }
@@ -122,7 +127,7 @@ public class Rxjava2_4_Scheduler {
                     @Override
                     public void accept(@NonNull Integer i) throws Exception {
                         Thread.sleep(2000);//休息2s后再处理数据
-                        System.out.println("接收线程:" + Thread.currentThread().getName() + "---->" + "接收:" + i);
+                        SystemOut.println("接收线程:" + Thread.currentThread().getName() + "---->" + "接收:" + i);
                     }
                 });
     }
@@ -133,7 +138,7 @@ public class Rxjava2_4_Scheduler {
                     @Override
                     public void subscribe(ObservableEmitter<Integer> e) throws Exception {
                         for (int i = 0; i < 3; i++) {
-                            System.out.println("发射线程:" + Thread.currentThread().getName() + "---->" + "发射:" + i);
+                            SystemOut.println("发射线程:" + Thread.currentThread().getName() + "---->" + "发射:" + i);
                             Thread.sleep(1000);
                             e.onNext(i);
                         }
@@ -145,7 +150,7 @@ public class Rxjava2_4_Scheduler {
                 .map(new Function<Integer, Integer>() {
                     @Override
                     public Integer apply(@NonNull Integer i) throws Exception {
-                        System.out.println("处理线程:" + Thread.currentThread().getName() + "---->" + "处理:" + i);
+                        SystemOut.println("处理线程:" + Thread.currentThread().getName() + "---->" + "处理:" + i);
                         return i;
                     }
                 })
@@ -153,7 +158,7 @@ public class Rxjava2_4_Scheduler {
                 .subscribe(new Consumer<Integer>() {
                     @Override
                     public void accept(@NonNull Integer i) throws Exception {
-                        System.out.println("接收线程:" + Thread.currentThread().getName() + "---->" + "接收:" + i);
+                        SystemOut.println("接收线程:" + Thread.currentThread().getName() + "---->" + "接收:" + i);
                     }
                 });
     }

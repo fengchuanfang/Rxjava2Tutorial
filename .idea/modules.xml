@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/javaecho/javaecho.iml" filepath="$PROJECT_DIR$/javaecho/javaecho.iml" />
       <module fileurl="file://$PROJECT_DIR$/Rxjava2Tutorial.iml" filepath="$PROJECT_DIR$/Rxjava2Tutorial.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>

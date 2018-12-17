@@ -1,4 +1,4 @@
-package com.edward.rxjava.directory;
+package com.edward.rxjava;
 
 /**
  * 功能描述：
@@ -7,10 +7,11 @@ package com.edward.rxjava.directory;
  * @link http://www.jianshu.com/u/f7176d6d53d2
  * 创建时间： 2018/12/15
  */
-public class DirectoryBean {
+public class Rxjava2DemoBean {
     private int index;
     private String title;
     private String url;
+    private String demo_class;
 
     public int getIndex() {
         return index;
@@ -34,5 +35,13 @@ public class DirectoryBean {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getDemo_class() {
+        return demo_class;
+    }
+
+    public void setDemo_class(String demo_class) {
+        this.demo_class = demo_class;
     }
 }

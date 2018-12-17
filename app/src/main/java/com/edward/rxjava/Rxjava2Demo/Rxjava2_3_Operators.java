@@ -1,4 +1,8 @@
-package com.edward.edward.Rxjava2Demo;
+package com.edward.rxjava.Rxjava2Demo;
+
+import com.edward.javaecho.SystemOut;
+
+import android.annotation.SuppressLint;
 
 import io.reactivex.Observable;
 import io.reactivex.annotations.NonNull;
@@ -14,6 +18,7 @@ import io.reactivex.functions.Predicate;
  * @link http://www.jianshu.com/u/f7176d6d53d2
  * 创建时间： 2017/8/19
  */
+@SuppressLint("CheckResult")
 public class Rxjava2_3_Operators {
 
     public void demo1_range() {
@@ -22,7 +27,7 @@ public class Rxjava2_3_Operators {
                 .subscribe(new Consumer<Integer>() {
                     @Override
                     public void accept(Integer integer) throws Exception {
-                        System.out.println(integer);
+                        SystemOut.println(integer);
                     }
                 });
     }
@@ -39,7 +44,7 @@ public class Rxjava2_3_Operators {
                 .subscribe(new Consumer<Integer>() {
                     @Override
                     public void accept(Integer integer) throws Exception {
-                        System.out.println(integer);
+                        SystemOut.println(integer);
                     }
                 });
     }
@@ -50,7 +55,7 @@ public class Rxjava2_3_Operators {
                 .subscribe(new Consumer<Integer>() {
                     @Override
                     public void accept(@NonNull Integer integer) throws Exception {
-                        System.out.println(integer);
+                        SystemOut.println(integer);
                     }
                 });
     }
@@ -67,7 +72,7 @@ public class Rxjava2_3_Operators {
                 .subscribe(new Consumer<Integer>() {
                     @Override
                     public void accept(@NonNull Integer integer) throws Exception {
-                        System.out.println(integer);
+                        SystemOut.println(integer);
                     }
                 });
     }
@@ -83,7 +88,7 @@ public class Rxjava2_3_Operators {
                 .subscribe(new Consumer<String>() {
                     @Override
                     public void accept(@NonNull String s) throws Exception {
-                        System.out.println(s);
+                        SystemOut.println(s);
                     }
                 });
     }
@@ -102,7 +107,7 @@ public class Rxjava2_3_Operators {
                 .subscribe(new Consumer<Integer>() {
                     @Override
                     public void accept(@NonNull Integer integer) throws Exception {
-                        System.out.println(integer);
+                        SystemOut.println(integer);
                     }
                 });
     }
@@ -114,7 +119,7 @@ public class Rxjava2_3_Operators {
                 .subscribe(new Consumer<Integer>() {
                     @Override
                     public void accept(@NonNull Integer integer) throws Exception {
-                        System.out.println(integer);
+                        SystemOut.println(integer);
                     }
                 });
     }
@@ -126,7 +131,7 @@ public class Rxjava2_3_Operators {
                 .subscribe(new Consumer<Integer>() {
                     @Override
                     public void accept(@NonNull Integer integer) throws Exception {
-                        System.out.println(integer);
+                        SystemOut.println(integer);
                     }
                 });
     }
@@ -143,7 +148,7 @@ public class Rxjava2_3_Operators {
                 .subscribe(new Consumer<String>() {
                     @Override
                     public void accept(@NonNull String s) throws Exception {
-                        System.out.println(s);
+                        SystemOut.println(s);
                     }
                 });
     }
@@ -183,7 +188,7 @@ public class Rxjava2_3_Operators {
                 .subscribe(new Consumer<String>() {
                     @Override
                     public void accept(@NonNull String s) throws Exception {
-                        System.out.println(s);
+                        SystemOut.println(s);
                     }
                 });
     }

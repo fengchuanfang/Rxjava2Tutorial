@@ -2,31 +2,37 @@
   {
     "index": 1,
     "title": "Rxjava2入门教程一：函数响应式编程及概述",
-    "url": "https://www.jianshu.com/p/15b2f3d7141a"
+    "url": "https://www.jianshu.com/p/15b2f3d7141a",
+    "demo_class":""
   },
   {
     "index": 2,
     "title": "Rxjava2入门教程二：Observable与Observer响应式编程在Rxjava2中的典型实现",
-    "url": "https://www.jianshu.com/p/c8150187714c"
+    "url": "https://www.jianshu.com/p/c8150187714c",
+    "demo_class":"Rxjava2_2_Observable"
   },
   {
     "index": 3,
     "title": "Rxjava2入门教程三：Operators操作符",
-    "url": "https://www.jianshu.com/p/6e71e31c5d3d"
+    "url": "https://www.jianshu.com/p/6e71e31c5d3d",
+    "demo_class":"Rxjava2_3_Operators"
   },
   {
     "index": 4,
     "title": "Rxjava2入门教程四：Scheduler线程调度器",
-    "url": "https://www.jianshu.com/p/12638513424f"
+    "url": "https://www.jianshu.com/p/12638513424f",
+    "demo_class":"Rxjava2_4_Scheduler"
   },
   {
     "index": 5,
     "title": "Rxjava2入门教程五：Flowable背压支持——对Flowable最全面而详细的讲解",
-    "url": "https://www.jianshu.com/p/ff8167c1d191"
+    "url": "https://www.jianshu.com/p/ff8167c1d191",
+    "demo_class":"Rxjava2_5_Flowable"
   },
   {
     "index": 6,
     "title": "Rxjava2入门教程六：Single、Completable、Maybe——简化版的Observable",
-    "url": "https://www.jianshu.com/p/66a55abbadef"
+    "url": "https://www.jianshu.com/p/66a55abbadef",
+    "demo_class":"Rxjava2_6_Single_Completable_Maybe"
   }
 ]

@@ -1,7 +1,11 @@
-package com.edward.edward.Rxjava2Demo;
+package com.edward.rxjava.Rxjava2Demo;
+
+import com.edward.javaecho.SystemOut;
 
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
+
+import android.annotation.SuppressLint;
 
 import io.reactivex.BackpressureStrategy;
 import io.reactivex.Flowable;
@@ -23,7 +27,12 @@ import io.reactivex.schedulers.Schedulers;
  * @link http://www.jianshu.com/u/f7176d6d53d2
  * 创建时间： 2017/8/19
  */
+@SuppressLint("CheckResult")
 public class Rxjava2_5_Flowable {
+
+    public void demo0(){
+        SystemOut.println("本节部分Demo会导致app内存溢出或闪退，需要结合控制台查看运行结果");
+    }
 
     public void demo1() {
         Observable
@@ -43,7 +52,7 @@ public class Rxjava2_5_Flowable {
                     @Override
                     public void accept(Integer integer) throws Exception {
                         Thread.sleep(5000);
-                        System.out.println(integer);
+                        SystemOut.println(integer);
                     }
                 });
     }
@@ -53,13 +62,13 @@ public class Rxjava2_5_Flowable {
                 .create(new FlowableOnSubscribe<Integer>() {
                     @Override
                     public void subscribe(FlowableEmitter<Integer> e) throws Exception {
-                        System.out.println("发射----> 1");
+                        SystemOut.println("发射----> 1");
                         e.onNext(1);
-                        System.out.println("发射----> 2");
+                        SystemOut.println("发射----> 2");
                         e.onNext(2);
-                        System.out.println("发射----> 3");
+                        SystemOut.println("发射----> 3");
                         e.onNext(3);
-                        System.out.println("发射----> 完成");
+                        SystemOut.println("发射----> 完成");
                         e.onComplete();
                     }
                 }, BackpressureStrategy.BUFFER) //create方法中多了一个BackpressureStrategy类型的参数
@@ -74,7 +83,7 @@ public class Rxjava2_5_Flowable {
 
                     @Override
                     public void onNext(Integer integer) {
-                        System.out.println("接收----> " + integer);
+                        SystemOut.println("接收----> " + integer);
                     }
 
                     @Override
@@ -83,7 +92,7 @@ public class Rxjava2_5_Flowable {
 
                     @Override
                     public void onComplete() {
-                        System.out.println("接收----> 完成");
+                        SystemOut.println("接收----> 完成");
                     }
                 });
     }
@@ -113,17 +122,17 @@ public class Rxjava2_5_Flowable {
                             Thread.sleep(10000);
                         } catch (InterruptedException ignore) {
                         }
-                        System.out.println(integer);
+                        SystemOut.println(integer);
                     }
 
                     @Override
                     public void onError(Throwable t) {
-                        t.printStackTrace();
+                        SystemOut.println(t);
                     }
 
                     @Override
                     public void onComplete() {
-                        System.out.println("接收----> 完成");
+                        SystemOut.println("接收----> 完成");
                     }
                 });
     }
@@ -134,16 +143,16 @@ public class Rxjava2_5_Flowable {
                     @Override
                     public void subscribe(FlowableEmitter<Integer> e) throws Exception {
                         String threadName = Thread.currentThread().getName();
-                        System.out.println(threadName + "开始发射数据" + System.currentTimeMillis());
+                        SystemOut.println(threadName + "开始发射数据" + System.currentTimeMillis());
                         for (int i = 1; i <= 500; i++) {
-                            System.out.println(threadName + "发射---->" + i);
+                            SystemOut.println(threadName + "发射---->" + i);
                             e.onNext(i);
                             try {
                                 Thread.sleep(100);//每隔100毫秒发射一次数据
                             } catch (Exception ignore) {
                             }
                         }
-                        System.out.println(threadName + "发射数据结束" + System.currentTimeMillis());
+                        SystemOut.println(threadName + "发射数据结束" + System.currentTimeMillis());
                         e.onComplete();
                     }
                 }, BackpressureStrategy.DROP)
@@ -161,17 +170,17 @@ public class Rxjava2_5_Flowable {
                             Thread.sleep(300);//每隔300毫秒接收一次数据
                         } catch (InterruptedException ignore) {
                         }
-                        System.out.println(Thread.currentThread().getName() + "接收---------->" + integer);
+                        SystemOut.println(Thread.currentThread().getName() + "接收---------->" + integer);
                     }
 
                     @Override
                     public void onError(Throwable t) {
-                        t.printStackTrace();
+                        SystemOut.println(t);
                     }
 
                     @Override
                     public void onComplete() {
-                        System.out.println(Thread.currentThread().getName() + "接收----> 完成");
+                        SystemOut.println(Thread.currentThread().getName() + "接收----> 完成");
                     }
                 });
     }
@@ -182,16 +191,16 @@ public class Rxjava2_5_Flowable {
                     @Override
                     public void subscribe(FlowableEmitter<Integer> e) throws Exception {
                         String threadName = Thread.currentThread().getName();
-                        System.out.println(threadName + "开始发射数据" + System.currentTimeMillis());
+                        SystemOut.println(threadName + "开始发射数据" + System.currentTimeMillis());
                         for (int i = 1; i <= 500; i++) {
-                            System.out.println(threadName + "发射---->" + i);
+                            SystemOut.println(threadName + "发射---->" + i);
                             e.onNext(i);
                             try {
                                 Thread.sleep(100);
                             } catch (Exception ignore) {
                             }
                         }
-                        System.out.println(threadName + "发射数据结束" + System.currentTimeMillis());
+                        SystemOut.println(threadName + "发射数据结束" + System.currentTimeMillis());
                         e.onComplete();
 
                     }
@@ -210,17 +219,17 @@ public class Rxjava2_5_Flowable {
                             Thread.sleep(300);
                         } catch (InterruptedException ignore) {
                         }
-                        System.out.println(Thread.currentThread().getName() + "接收---------->" + integer);
+                        SystemOut.println(Thread.currentThread().getName() + "接收---------->" + integer);
                     }
 
                     @Override
                     public void onError(Throwable t) {
-                        t.printStackTrace();
+                        SystemOut.println(t);
                     }
 
                     @Override
                     public void onComplete() {
-                        System.out.println(Thread.currentThread().getName() + "接收----> 完成");
+                        SystemOut.println(Thread.currentThread().getName() + "接收----> 完成");
                     }
                 });
     }
@@ -243,7 +252,7 @@ public class Rxjava2_5_Flowable {
                     @Override
                     public void accept(@NonNull Integer integer) throws Exception {
                         Thread.sleep(5000);
-                        System.out.println(integer);
+                        SystemOut.println(integer);
                     }
                 });
     }
@@ -264,7 +273,7 @@ public class Rxjava2_5_Flowable {
                 .subscribe(new Consumer<Integer>() {
                     @Override
                     public void accept(@NonNull Integer integer) throws Exception {
-                        System.out.println(integer);
+                        SystemOut.println(integer);
                     }
                 });
     }
@@ -277,7 +286,7 @@ public class Rxjava2_5_Flowable {
                 .subscribe(new Consumer<Integer>() {
                     @Override
                     public void accept(@NonNull Integer integer) throws Exception {
-                        System.out.println(integer);
+                        SystemOut.println(integer);
                     }
                 });
     }
@@ -287,13 +296,13 @@ public class Rxjava2_5_Flowable {
                 .create(new FlowableOnSubscribe<Integer>() {
                     @Override
                     public void subscribe(FlowableEmitter<Integer> e) throws Exception {
-                        System.out.println("发射----> 1");
+                        SystemOut.println("发射----> 1");
                         e.onNext(1);
-                        System.out.println("发射----> 2");
+                        SystemOut.println("发射----> 2");
                         e.onNext(2);
-                        System.out.println("发射----> 3");
+                        SystemOut.println("发射----> 3");
                         e.onNext(3);
-                        System.out.println("发射----> 完成");
+                        SystemOut.println("发射----> 完成");
                         e.onComplete();
                     }
                 }, BackpressureStrategy.BUFFER) //create方法中多了一个BackpressureStrategy类型的参数
@@ -307,7 +316,7 @@ public class Rxjava2_5_Flowable {
 
                     @Override
                     public void onNext(Integer integer) {
-                        System.out.println("接收----> " + integer);
+                        SystemOut.println("接收----> " + integer);
                     }
 
                     @Override
@@ -316,7 +325,7 @@ public class Rxjava2_5_Flowable {
 
                     @Override
                     public void onComplete() {
-                        System.out.println("接收----> 完成");
+                        SystemOut.println("接收----> 完成");
                     }
                 });
     }
@@ -326,13 +335,13 @@ public class Rxjava2_5_Flowable {
                 .create(new FlowableOnSubscribe<Integer>() {
                     @Override
                     public void subscribe(FlowableEmitter<Integer> e) throws Exception {
-                        System.out.println("发射----> 1");
+                        SystemOut.println("发射----> 1");
                         e.onNext(1);
-                        System.out.println("发射----> 2");
+                        SystemOut.println("发射----> 2");
                         e.onNext(2);
-                        System.out.println("发射----> 3");
+                        SystemOut.println("发射----> 3");
                         e.onNext(3);
-                        System.out.println("发射----> 完成");
+                        SystemOut.println("发射----> 完成");
                         e.onComplete();
                     }
                 }, BackpressureStrategy.BUFFER) //create方法中多了一个BackpressureStrategy类型的参数
@@ -346,7 +355,7 @@ public class Rxjava2_5_Flowable {
 
                     @Override
                     public void onNext(Integer integer) {
-                        System.out.println("接收----> " + integer);
+                        SystemOut.println("接收----> " + integer);
                     }
 
                     @Override
@@ -355,7 +364,7 @@ public class Rxjava2_5_Flowable {
 
                     @Override
                     public void onComplete() {
-                        System.out.println("接收----> 完成");
+                        SystemOut.println("接收----> 完成");
                     }
                 });
     }
@@ -367,10 +376,10 @@ public class Rxjava2_5_Flowable {
                     public void subscribe(FlowableEmitter<Integer> e) throws Exception {
                         String threadName = Thread.currentThread().getName();
                         for (int i = 1; i <= 10; i++) {
-                            System.out.println(threadName + "发射---->" + i);
+                            SystemOut.println(threadName + "发射---->" + i);
                             e.onNext(i);
                         }
-                        System.out.println(threadName + "发射数据结束" + System.currentTimeMillis());
+                        SystemOut.println(threadName + "发射数据结束" + System.currentTimeMillis());
                         e.onComplete();
                     }
                 }, BackpressureStrategy.BUFFER)
@@ -385,17 +394,17 @@ public class Rxjava2_5_Flowable {
 
                     @Override
                     public void onNext(Integer integer) {
-                        System.out.println(Thread.currentThread().getName() + "接收---------->" + integer);
+                        SystemOut.println(Thread.currentThread().getName() + "接收---------->" + integer);
                     }
 
                     @Override
                     public void onError(Throwable t) {
-                        t.printStackTrace();
+                        SystemOut.println(t);
                     }
 
                     @Override
                     public void onComplete() {
-                        System.out.println(Thread.currentThread().getName() + "接收----> 完成");
+                        SystemOut.println(Thread.currentThread().getName() + "接收----> 完成");
                     }
                 });
     }
@@ -406,7 +415,7 @@ public class Rxjava2_5_Flowable {
                     @Override
                     public void subscribe(FlowableEmitter<Integer> e) throws Exception {
                         for (int i = 1; i < 130; i++) {
-                            System.out.println("发射---->" + i);
+                            SystemOut.println("发射---->" + i);
                             e.onNext(i);
                         }
                         e.onComplete();
@@ -422,17 +431,17 @@ public class Rxjava2_5_Flowable {
 
                     @Override
                     public void onNext(Integer integer) {
-                        System.out.println("接收------>" + integer);
+                        SystemOut.println("接收------>" + integer);
                     }
 
                     @Override
                     public void onError(Throwable t) {
-                        t.printStackTrace();
+                        SystemOut.println(t);
                     }
 
                     @Override
                     public void onComplete() {
-                        System.out.println("接收------>完成");
+                        SystemOut.println("接收------>完成");
                     }
                 });
     }
@@ -444,11 +453,11 @@ public class Rxjava2_5_Flowable {
                     public void subscribe(FlowableEmitter<Integer> e) throws Exception {
                         String threadName = Thread.currentThread().getName();
                         for (int i = 1; i <= 5; i++) {
-                            System.out.println("当前未完成的请求数量-->" + e.requested());
-                            System.out.println(threadName + "发射---->" + i);
+                            SystemOut.println("当前未完成的请求数量-->" + e.requested());
+                            SystemOut.println(threadName + "发射---->" + i);
                             e.onNext(i);
                         }
-                        System.out.println(threadName + "发射数据结束" + System.currentTimeMillis());
+                        SystemOut.println(threadName + "发射数据结束" + System.currentTimeMillis());
                         e.onComplete();
                     }
                 }, BackpressureStrategy.BUFFER)//上下游运行在同一线程中
@@ -460,17 +469,17 @@ public class Rxjava2_5_Flowable {
 
                     @Override
                     public void onNext(Integer integer) {
-                        System.out.println(Thread.currentThread().getName() + "接收---------->" + integer);
+                        SystemOut.println(Thread.currentThread().getName() + "接收---------->" + integer);
                     }
 
                     @Override
                     public void onError(Throwable t) {
-                        t.printStackTrace();
+                        SystemOut.println(t);
                     }
 
                     @Override
                     public void onComplete() {
-                        System.out.println(Thread.currentThread().getName() + "接收----> 完成");
+                        SystemOut.println(Thread.currentThread().getName() + "接收----> 完成");
                     }
                 });
     }
@@ -482,11 +491,11 @@ public class Rxjava2_5_Flowable {
                     public void subscribe(FlowableEmitter<Integer> e) throws Exception {
                         String threadName = Thread.currentThread().getName();
                         for (int i = 1; i <= 5; i++) {
-                            System.out.println("当前未完成的请求数量-->" + e.requested());
-                            System.out.println(threadName + "发射---->" + i);
+                            SystemOut.println("当前未完成的请求数量-->" + e.requested());
+                            SystemOut.println(threadName + "发射---->" + i);
                             e.onNext(i);
                         }
-                        System.out.println(threadName + "发射数据结束" + System.currentTimeMillis());
+                        SystemOut.println(threadName + "发射数据结束" + System.currentTimeMillis());
                         e.onComplete();
                     }
                 }, BackpressureStrategy.BUFFER)
@@ -500,17 +509,17 @@ public class Rxjava2_5_Flowable {
 
                     @Override
                     public void onNext(Integer integer) {
-                        System.out.println(Thread.currentThread().getName() + "接收---------->" + integer);
+                        SystemOut.println(Thread.currentThread().getName() + "接收---------->" + integer);
                     }
 
                     @Override
                     public void onError(Throwable t) {
-                        t.printStackTrace();
+                        SystemOut.println(t);
                     }
 
                     @Override
                     public void onComplete() {
-                        System.out.println(Thread.currentThread().getName() + "接收----> 完成");
+                        SystemOut.println(Thread.currentThread().getName() + "接收----> 完成");
                     }
                 });
     }
@@ -522,11 +531,11 @@ public class Rxjava2_5_Flowable {
                     public void subscribe(FlowableEmitter<Integer> e) throws Exception {
                         String threadName = Thread.currentThread().getName();
                         for (int i = 1; i <= 5; i++) {
-                            System.out.println("当前未完成的请求数量-->" + e.requested());
-                            System.out.println(threadName + "发射---->" + i);
+                            SystemOut.println("当前未完成的请求数量-->" + e.requested());
+                            SystemOut.println(threadName + "发射---->" + i);
                             e.onNext(i);
                         }
-                        System.out.println(threadName + "发射数据结束" + System.currentTimeMillis());
+                        SystemOut.println(threadName + "发射数据结束" + System.currentTimeMillis());
                         e.onComplete();
                     }
                 }, BackpressureStrategy.BUFFER)
@@ -540,17 +549,17 @@ public class Rxjava2_5_Flowable {
 
                     @Override
                     public void onNext(Integer integer) {
-                        System.out.println(Thread.currentThread().getName() + "接收---------->" + integer);
+                        SystemOut.println(Thread.currentThread().getName() + "接收---------->" + integer);
                     }
 
                     @Override
                     public void onError(Throwable t) {
-                        t.printStackTrace();
+                        SystemOut.println(t);
                     }
 
                     @Override
                     public void onComplete() {
-                        System.out.println(Thread.currentThread().getName() + "接收----> 完成");
+                        SystemOut.println(Thread.currentThread().getName() + "接收----> 完成");
                     }
                 });
     }
@@ -562,11 +571,11 @@ public class Rxjava2_5_Flowable {
                     public void subscribe(FlowableEmitter<Integer> e) throws Exception {
                         String threadName = Thread.currentThread().getName();
                         for (int i = 1; i <= 150; i++) {
-                            System.out.println("当前未完成的请求数量-->" + e.requested());
-                            System.out.println(threadName + "发射---->" + i);
+                            SystemOut.println("当前未完成的请求数量-->" + e.requested());
+                            SystemOut.println(threadName + "发射---->" + i);
                             e.onNext(i);
                         }
-                        System.out.println(threadName + "发射数据结束" + System.currentTimeMillis());
+                        SystemOut.println(threadName + "发射数据结束" + System.currentTimeMillis());
                         e.onComplete();
                     }
                 }, BackpressureStrategy.BUFFER)
@@ -580,17 +589,17 @@ public class Rxjava2_5_Flowable {
 
                     @Override
                     public void onNext(Integer integer) {
-                        System.out.println(Thread.currentThread().getName() + "接收---------->" + integer);
+                        SystemOut.println(Thread.currentThread().getName() + "接收---------->" + integer);
                     }
 
                     @Override
                     public void onError(Throwable t) {
-                        t.printStackTrace();
+                        SystemOut.println(t);
                     }
 
                     @Override
                     public void onComplete() {
-                        System.out.println(Thread.currentThread().getName() + "接收----> 完成");
+                        SystemOut.println(Thread.currentThread().getName() + "接收----> 完成");
                     }
                 });
     }
@@ -603,7 +612,7 @@ public class Rxjava2_5_Flowable {
                         int i = 0;
                         while (true) {
                             i++;
-                            System.out.println("发射---->" + i);
+                            SystemOut.println("发射---->" + i);
                             e.onNext(i);
                         }
                     }
@@ -619,19 +628,19 @@ public class Rxjava2_5_Flowable {
                     public void onNext(Integer integer) {
                         try {
                             Thread.sleep(50);
-                            System.out.println("接收------>" + integer);
+                            SystemOut.println("接收------>" + integer);
                         } catch (InterruptedException ignore) {
                         }
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        e.printStackTrace();
+                        SystemOut.println(e);
                     }
 
                     @Override
                     public void onComplete() {
-                        System.out.println("接收------>完成");
+                        SystemOut.println("接收------>完成");
                     }
                 });
     }
@@ -644,7 +653,7 @@ public class Rxjava2_5_Flowable {
                         int i = 0;
                         while (true) {
                             if (e.requested() == 0) continue;//此处添加代码，让flowable按需发送数据
-                            System.out.println("发射---->" + i);
+                            SystemOut.println("发射---->" + i);
                             i++;
                             e.onNext(i);
                         }
@@ -665,7 +674,7 @@ public class Rxjava2_5_Flowable {
                     public void onNext(Integer integer) {
                         try {
                             Thread.sleep(50);
-                            System.out.println("接收------>" + integer);
+                            SystemOut.println("接收------>" + integer);
                             mSubscription.request(1);//每接收到一条数据增加一条请求量
                         } catch (InterruptedException ignore) {
                         }

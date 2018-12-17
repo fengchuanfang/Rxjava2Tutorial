@@ -1,4 +1,6 @@
-package com.edward.edward.Rxjava2Demo;
+package com.edward.rxjava.Rxjava2Demo;
+
+import com.edward.javaecho.SystemOut;
 
 import io.reactivex.Completable;
 import io.reactivex.CompletableEmitter;
@@ -39,12 +41,12 @@ public class Rxjava2_6_Single_Completable_Maybe {
 
                     @Override
                     public void onSuccess(Integer integer) {
-                        System.out.println(integer);
+                        SystemOut.println(integer);
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        e.printStackTrace();
+                        SystemOut.println(e);
                     }
                 });
     }
@@ -65,12 +67,12 @@ public class Rxjava2_6_Single_Completable_Maybe {
 
                     @Override
                     public void onSuccess(Integer integer) {
-                        System.out.println(integer);
+                        SystemOut.println(integer);
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        e.printStackTrace();
+                        SystemOut.println(e);
                     }
                 });
     }
@@ -92,12 +94,12 @@ public class Rxjava2_6_Single_Completable_Maybe {
 
                     @Override
                     public void onComplete() {
-                        System.out.println("执行完成");
+                        SystemOut.println("执行完成");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        e.printStackTrace();
+                        SystemOut.println(e);
                     }
                 });
     }
@@ -118,12 +120,12 @@ public class Rxjava2_6_Single_Completable_Maybe {
 
                     @Override
                     public void onComplete() {
-                        System.out.println("执行完成");
+                        SystemOut.println("执行完成");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        e.printStackTrace();
+                        SystemOut.println(e);
                     }
                 });
     }
@@ -145,17 +147,17 @@ public class Rxjava2_6_Single_Completable_Maybe {
 
                     @Override
                     public void onSuccess(Integer integer) {
-                        System.out.println(integer);
+                        SystemOut.println(integer);
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        e.printStackTrace();
+                        SystemOut.println(e);
                     }
 
                     @Override
                     public void onComplete() {
-                        System.out.println("执行完成");
+                        SystemOut.println("执行完成");
                     }
                 });
     }
@@ -177,17 +179,17 @@ public class Rxjava2_6_Single_Completable_Maybe {
 
                     @Override
                     public void onSuccess(Integer integer) {
-                        System.out.println(integer);
+                        SystemOut.println(integer);
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        e.printStackTrace();
+                        SystemOut.println(e);
                     }
 
                     @Override
                     public void onComplete() {
-                        System.out.println("执行完成");
+                        SystemOut.println("执行完成");
                     }
                 });
     }

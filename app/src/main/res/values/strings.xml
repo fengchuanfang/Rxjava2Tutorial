@@ -2,4 +2,11 @@
     <string name="app_name">Rxjava2Tutorial</string>
     <string name="rxjava2_tutorial">Rxjava2入门教程</string>
     <string name="start">start</string>
+    <string-array name="rxjava_tutorial_caption">
+        <item>Rxjava2入门教程二：Observable与Observer响应式编程在Rxjava2中的典型实现</item>
+        <item>Rxjava2入门教程三：Operators操作符</item>
+        <item>Rxjava2入门教程四：Scheduler线程调度器</item>
+        <item>Rxjava2入门教程五：Flowable背压支持——对Flowable最全面而详细的讲解</item>
+        <item>Rxjava2入门教程六：Single、Completable、Maybe——简化版的Observable</item>
+    </string-array>
 </resources>

@@ -1,4 +1,4 @@
-package com.edward.edward.Rxjava2Demo;
+package com.edward.rxjava.Rxjava2Demo;
 
 import io.reactivex.disposables.Disposable;
 

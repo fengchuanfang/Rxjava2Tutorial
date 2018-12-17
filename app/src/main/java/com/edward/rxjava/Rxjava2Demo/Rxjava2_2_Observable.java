@@ -1,5 +1,9 @@
-package com.edward.edward.Rxjava2Demo;
+package com.edward.rxjava.Rxjava2Demo;
 
+
+import com.edward.javaecho.SystemOut;
+
+import android.annotation.SuppressLint;
 
 import java.util.List;
 
@@ -19,6 +23,7 @@ import io.reactivex.functions.Consumer;
  * @link http://www.jianshu.com/u/f7176d6d53d2
  * 创建时间： 2017/8/19
  */
+@SuppressLint("CheckResult")
 public class Rxjava2_2_Observable {
 
     public void demo1() {
@@ -39,17 +44,17 @@ public class Rxjava2_2_Observable {
 
             @Override
             public void onNext(String s) {
-                System.out.println(s);
+                SystemOut.println(s);
             }
 
             @Override
             public void onError(Throwable e) {
-                e.printStackTrace();
+                SystemOut.println(e);
             }
 
             @Override
             public void onComplete() {
-                System.out.println("接受完成");
+                SystemOut.println("接受完成");
             }
         };
 
@@ -72,51 +77,52 @@ public class Rxjava2_2_Observable {
 
                     @Override
                     public void onNext(String s) {
-                        System.out.println(s);
+                        SystemOut.println(s);
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        e.printStackTrace();
+                        SystemOut.println(e);;
                     }
 
                     @Override
                     public void onComplete() {
-                        System.out.println("接受完成");
+                        SystemOut.println("接受完成");
                     }
                 });
     }
+
 
     public void demo3() {
         Observable.just("Hello World")
                 .subscribe(new Consumer<String>() {
                     @Override
                     public void accept(@NonNull String s) throws Exception {
-                        System.out.println(s);
+                        SystemOut.println(s);
                     }
                 });
     }
 
 
     public void demo3_1() {
-        Observable.just("Hello World").subscribe(System.out::println);
+        Observable.just("Hello World").subscribe(SystemOut::println);
     }
     public void demo4() {
         Observable.just("Hello World")
                 .subscribe(new Consumer<String>() {
                     @Override
                     public void accept(@NonNull String s) throws Exception {
-                        System.out.println(s);
+                        SystemOut.println(s);
                     }
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(@NonNull Throwable throwable) throws Exception {
-                        throwable.printStackTrace();
+                        SystemOut.println(throwable);
                     }
                 }, new Action() {
                     @Override
                     public void run() throws Exception {
-                        System.out.println("接受完成");
+                        SystemOut.println("接受完成");
                     }
                 });
     }
@@ -141,17 +147,17 @@ public class Rxjava2_2_Observable {
 
             @Override
             public void onNext(String s) {
-                System.out.println(s);
+                SystemOut.println(s);
             }
 
             @Override
             public void onError(Throwable e) {
-                e.printStackTrace();
+                SystemOut.println(e);
             }
 
             @Override
             public void onComplete() {
-                System.out.println("接受完成");
+                SystemOut.println("接受完成");
             }
         });
     }
@@ -162,13 +168,13 @@ public class Rxjava2_2_Observable {
                 .subscribe(new Consumer<String>() {
                     @Override
                     public void accept(@NonNull String s) throws Exception {
-                        System.out.println(s);
+                        SystemOut.println(s);
                     }
                 });
     }
 
     public void demo6_1(final List<String> list) {
-        Observable.fromIterable(list).subscribe(System.out::println);
+        Observable.fromIterable(list).subscribe(SystemOut::println);
     }
 
     public void demo7(final List<String> list) {
@@ -176,7 +182,7 @@ public class Rxjava2_2_Observable {
                 .subscribe(new Consumer<String>() {
                     @Override
                     public void accept(@NonNull String s) throws Exception {
-                        System.out.println(s);
+                        SystemOut.println(s);
                     }
                 });
         Disposable disposable2 = Observable
@@ -184,7 +190,7 @@ public class Rxjava2_2_Observable {
                 .subscribe(new Consumer<String>() {
                     @Override
                     public void accept(@NonNull String s) throws Exception {
-                        System.out.println(s);
+                        SystemOut.println(s);
                     }
                 });
     }
@@ -194,7 +200,7 @@ public class Rxjava2_2_Observable {
             @Override
             public void subscribe(ObservableEmitter<Integer> emitter) throws Exception {
                 for (int i = 0; i < 10; i++) {
-                    System.out.println("发送" + i);
+                    SystemOut.println("发送" + i);
                     emitter.onNext(i);
                 }
                 emitter.onComplete();
@@ -209,18 +215,18 @@ public class Rxjava2_2_Observable {
 
             @Override
             public void onNext(Integer integer) {
-                System.out.println("接收" + integer);
+                SystemOut.println("接收" + integer);
                 if (integer > 4) disposable.dispose();
             }
 
             @Override
             public void onError(Throwable e) {
-                e.printStackTrace();
+                SystemOut.println(e);
             }
 
             @Override
             public void onComplete() {
-                System.out.println("数据接受完成");
+                SystemOut.println("数据接受完成");
             }
         });
     }

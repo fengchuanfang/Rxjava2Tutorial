@@ -1,7 +1,7 @@
 package com.edward.rxjava.directory;
 
-import com.edward.rxjava.directory.DirectoryBean;
 import com.edward.rxjava.R;
+import com.edward.rxjava.Rxjava2DemoBean;
 import com.edward.rxjava.WebViewActivity;
 
 import android.content.Intent;
@@ -25,15 +25,15 @@ import butterknife.ButterKnife;
  * 创建时间： 2018/12/15
  */
 public class DirectoryAdapter extends RecyclerView.Adapter<DirectoryAdapter.ViewHolder> {
-    private final List<DirectoryBean> mList;
+    private final List<Rxjava2DemoBean> mList;
 
     DirectoryAdapter() {
         mList = new ArrayList<>();
     }
 
-    void notifyDataSetChanged(List<DirectoryBean> directoryBeans) {
+    void notifyDataSetChanged(List<Rxjava2DemoBean> rxjava2DemoBeans) {
         mList.clear();
-        mList.addAll(directoryBeans);
+        mList.addAll(rxjava2DemoBeans);
         this.notifyDataSetChanged();
     }
 
@@ -62,11 +62,11 @@ public class DirectoryAdapter extends RecyclerView.Adapter<DirectoryAdapter.View
             ButterKnife.bind(this, itemView);
         }
 
-        void setData(DirectoryBean directoryBean) {
-            directory_item_text.setText(directoryBean.getTitle());
+        void setData(Rxjava2DemoBean rxjava2DemoBean) {
+            directory_item_text.setText(rxjava2DemoBean.getTitle());
             itemView.setOnClickListener(v -> {
                 Intent intent = new Intent(v.getContext(), WebViewActivity.class);
-                intent.putExtra("url", directoryBean.getUrl());
+                intent.putExtra("url", rxjava2DemoBean.getUrl());
                 v.getContext().startActivity(intent);
             });
         }
