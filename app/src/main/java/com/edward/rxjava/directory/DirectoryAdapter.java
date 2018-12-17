@@ -1,6 +1,6 @@
 package com.edward.rxjava.directory;
 
-import com.edward.directory.DirectoryBean;
+import com.edward.rxjava.directory.DirectoryBean;
 import com.edward.rxjava.R;
 import com.edward.rxjava.WebViewActivity;
 

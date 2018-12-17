@@ -1,4 +1,4 @@
-package com.edward.directory;
+package com.edward.rxjava.directory;
 
 /**
  * 功能描述：
