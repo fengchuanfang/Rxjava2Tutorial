@@ -1,4 +1,4 @@
-package com.edward.edward.Rxjava2Demo;
+package com.edward.rxjava.Rxjava2Demo;
 
 import com.edward.edward.Rxjava2Demo.Rxjava2_5_Flowable;
 import com.edward.edward.Rxjava2Demo.Rxjava2_2_Observable;
@@ -6,7 +6,7 @@ import com.edward.edward.Rxjava2Demo.Rxjava2_3_Operators;
 import com.edward.edward.Rxjava2Demo.Rxjava2_4_Scheduler;
 import com.edward.edward.Rxjava2Demo.Rxjava2_6_Single_Completable_Maybe;
 import com.edward.edward.Rxjava2Demo.Rxjava2_8_Custom_Operators;
-import com.edward.edward.rxjava2tutorial.R;
+import com.edward.rxjava.R;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

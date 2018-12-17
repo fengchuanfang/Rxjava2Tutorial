@@ -1,10 +1,11 @@
-package com.edward.directory;
+package com.edward.rxjava.directory;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import com.edward.edward.rxjava2tutorial.R;
-import com.edward.edward.Rxjava2Demo.Rxjava2Activity;
+import com.edward.directory.DirectoryBean;
+import com.edward.rxjava.R;
+import com.edward.rxjava.Rxjava2Demo.Rxjava2Activity;
 
 import android.content.Intent;
 import android.os.Bundle;

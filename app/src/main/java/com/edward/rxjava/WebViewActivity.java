@@ -1,6 +1,6 @@
-package com.edward.edward;
+package com.edward.rxjava;
 
-import com.edward.edward.rxjava2tutorial.R;
+import com.edward.rxjava.R;
 
 import android.os.Build;
 import android.os.Bundle;
