@@ -3,6 +3,7 @@ package com.edward.rxjava.Rxjava2Demo;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import com.edward.javaecho.StringUtils;
 import com.edward.javaecho.SystemOut;
 import com.edward.rxjava.R;
 import com.edward.rxjava.Rxjava2DemoBean;
@@ -35,6 +36,7 @@ import io.reactivex.functions.Function;
 import io.reactivex.functions.Predicate;
 import io.reactivex.observables.GroupedObservable;
 import io.reactivex.schedulers.Schedulers;
+
 /**
  * 功能描述：Rxjava2入门教程Demo演示类
  *
@@ -87,6 +89,13 @@ public class Rxjava2Activity extends AppCompatActivity {
         mRxjava2DemoBeans = new ArrayList<>();
         initTitleSpinner();
         SystemOut.init(this, rxjava_demo_result);
+        rxjava_demo_result.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                StringUtils.copy(rxjava_demo_result.getText(), Rxjava2Activity.this);
+                return true;
+            }
+        });
     }
 
     /**
@@ -144,7 +153,7 @@ public class Rxjava2Activity extends AppCompatActivity {
                 .subscribe(new Consumer<List<String>>() {
                     @Override
                     public void accept(List<String> strings) throws Exception {
-                        rxjava_caption.setAdapter(new ArrayAdapter<String>(Rxjava2Activity.this, R.layout.simple_spinner_item, R.id.spinner_text, getResources().getStringArray(R.array.rxjava_tutorial_caption)));
+                        rxjava_caption.setAdapter(new ArrayAdapter<String>(Rxjava2Activity.this, R.layout.simple_spinner_item, R.id.spinner_text, strings));
                     }
                 });
     }
